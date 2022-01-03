@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import Navigation from './components/Navigation';
+import Home from './components/Home';
+import About from './components/About';
+import Contact from './components/Contact';
+import Gallery from './components/Gallery';
+import Footer from './components/Footer';
+import Privacy from './components/Privacy';
+import Impressum from './components/Impressum';
+
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+// База
+// https://www.techomoro.com/how-to-create-a-multi-page-website-with-react-in-5-minutes/
+
+// крутая запись на маник
+// https://crystal-nails.ru/
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navigation />
+      <Routes>
+        <Route path="/myapp" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/impressum" element={<Impressum />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
